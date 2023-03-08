@@ -1,7 +1,8 @@
 const Post = require("../models/Post");
 
-exports.getAllPosts = (req, res, next) => {
-  res.send("get all posts");
+exports.getAllPosts = async (req, res, next) => {
+  const posts = await Post.findAll();
+  res.send(posts);
 };
 
 exports.createNewPost = async (req, res, next) => {

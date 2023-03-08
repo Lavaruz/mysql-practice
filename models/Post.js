@@ -22,6 +22,14 @@ class Post {
     const [newPosts, _] = await db.execute(sql);
     return newPosts;
   }
+
+  static async findAll() {
+    let sql = `
+        SELECT * FROM posts`;
+
+    const [newPosts, _] = await db.execute(sql);
+    return newPosts;
+  }
 }
 
 module.exports = Post;
