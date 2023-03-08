@@ -13,8 +13,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.get("/", (req, res) => {
-  res.json({ status: "OK" });
-});
+app.use("/posts", require("./routes/postRoutes"));
 
 app.listen(3000, () => console.log("server run at port 3000"));
