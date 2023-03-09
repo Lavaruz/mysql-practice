@@ -19,16 +19,17 @@ class Post {
         VALUES('${this.title}','${this.body}','${createdAt}')
         `;
 
-    const [newPosts, _] = await db.execute(sql);
-    return newPosts;
+    return db.execute(sql);
   }
 
   static async findAll() {
-    let sql = `
-        SELECT * FROM posts`;
+    let sql = `SELECT * FROM posts`;
+    return db.execute(sql);
+  }
 
-    const [newPosts, _] = await db.execute(sql);
-    return newPosts;
+  static findById(id) {
+    let sql = `SELECT * FROM posts WHERE id=${id}`;
+    return db.execute(sql);
   }
 }
 
